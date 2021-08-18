@@ -154,5 +154,8 @@
       }
     }
   },
-  "defaultProject": "sanitary-inspection"
+  "defaultProject": "sanitary-inspection",
+  "cli": {
+    "analytics": "d5d6a66e-d4cb-4bee-a304-281a91d29e9b"
+  }
 }
