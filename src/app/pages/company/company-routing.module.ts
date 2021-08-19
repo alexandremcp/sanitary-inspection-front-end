@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CompanyListComponent } from "./company-list/company-list.component";
-import { CompanyFormComponent } from "./company-form/company-form.component";
+import { CompanyListComponent } from './company-list/company-list.component';
+import { CompanyFormComponent } from './company-form/company-form.component';
 
 const routes: Routes = [
   { path: '', component: CompanyListComponent },
@@ -15,9 +15,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class CompanyRoutingModule { }
-
-/*
-
-  { path: 'companyModule', loadChildren: () => import('./pages/company/company.module').then(m => m.CompanyModule) }
-
-*/

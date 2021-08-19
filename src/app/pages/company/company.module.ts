@@ -7,10 +7,10 @@ import { CompanyFormComponent } from './company-form/company-form.component';
 
 
 @NgModule({
+  declarations: [CompanyListComponent, CompanyFormComponent],
   imports: [
     CommonModule,
     CompanyRoutingModule
-  ],
-  declarations: [CompanyListComponent, CompanyFormComponent]
+  ]
 })
 export class CompanyModule { }
