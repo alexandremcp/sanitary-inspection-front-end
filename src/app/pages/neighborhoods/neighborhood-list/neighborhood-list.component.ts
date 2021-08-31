@@ -9,22 +9,36 @@ import { NeighborhoodService } from '../../shared/neighborhood.service';
 })
 export class NeighborhoodListComponent implements OnInit {
   
-  listaBairros: Neighborhood[];
+  //listaBairros: Neighborhood[];
+  neighborhoods: Neighborhood[] = [];
   
-  constructor(
-    //public neighborhoodService: NeighborhoodService
-    public neighborhoodService: NeighborhoodService
-  ) { }
+  constructor(public neighborhoodService: NeighborhoodService) { }
 
   ngOnInit(): void {
-    this.getAll();
+    this.neighborhoodService.getAll().subscribe(
+      neighborhoods => this.neighborhoods = neighborhoods,
+      error => alert('Erro ao carregar a lista')
+    )
   }
 
+  deleteNeighborhood(neighborhood) {
+    const mustDelete = confirm('Deseja reamente excluir este item? ');
+    if (mustDelete) {
+      this.neighborhoodService.delete(neighborhood.id).subscribe(
+        () => this.neighborhoods = this.neighborhoods.filter(element => element != neighborhood),
+        () => alert("Erro ao tentar excluir!")
+      )
+    }
+  }
+
+
+  /*
   getAll(){
     this.neighborhoodService.getAll().subscribe(data => {
       this.listaBairros = data.content;
       console.log(this.listaBairros);
     });
   }
+  */
 
 }

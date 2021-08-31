@@ -9,21 +9,26 @@ import { NeighborhoodService } from '../../shared/neighborhood.service';
 })
 export class CompanyListComponent implements OnInit {
 
-  neighborhoodsList: Neighborhood[];
+  neighborhoods: Neighborhood[] = [];
 
-  constructor(
-    public neighborhoodService: NeighborhoodService
-  ) { }
-
+  constructor(public neighborhoodService: NeighborhoodService) { }
+  
   ngOnInit(): void {
-    this.getNeighborhoods();
+    this.neighborhoodService.getAll().subscribe(
+      neighborhoods => this.neighborhoods = neighborhoods,
+      error => alert('Erro ao carregar a lista')
+    )
   }
 
+
+
+  /*
   getNeighborhoods(){
     this.neighborhoodService.getAll().subscribe(data => {
         this.neighborhoodsList = data.content;
         console.log(this.neighborhoodsList);
     });
   }
+  */
 
 }

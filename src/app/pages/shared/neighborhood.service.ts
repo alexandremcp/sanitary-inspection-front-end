@@ -16,10 +16,11 @@ export class NeighborhoodService {
   // Inicio - Micheli
   //apiUrl = 'http://localhost:8080/neighborhoods'; //Alterado para funcionar com proxy, videio da Loiane em: https://www.youtube.com/watch?v=D9oFe6rHjpY
   apiUrl = '/api/neighborhoods';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
-    })
+    }) 
   };
   // Fim - Micheli
 
